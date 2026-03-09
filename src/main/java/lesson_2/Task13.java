@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package lesson2;
 
 public class Task13 {
     public static void main(String[] args) {
