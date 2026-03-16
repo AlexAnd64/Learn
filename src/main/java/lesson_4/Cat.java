@@ -1,6 +1,6 @@
 package lesson_4;
 
-class Cat extends Animals {
+class Cat extends Animal {
     private boolean isFull;
     private static int catCount = 0;
 

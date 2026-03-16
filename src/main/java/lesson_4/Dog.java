@@ -1,6 +1,6 @@
 package lesson_4;
 
-public class Dog extends Animals {
+public class Dog extends Animal {
     private static int dogCount = 0;
 
     public Dog(String name) {
