@@ -1,8 +1,11 @@
-public class Task9 {
+package lesson2;
+
+public class Task3 {
     public static void main(String[] args) {
         Methods method = new Methods();
-        int year = 2028;
-        boolean result = method.leapYear(year);
+        int value = 20;
+
+        String result = method.printColor(value);
         System.out.println(result);
     }
 }

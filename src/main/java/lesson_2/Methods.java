@@ -1,7 +1,9 @@
+package lesson2;
+
 public class Methods {
-    // Задача 1
-    public String printThreeWords() {
-        return ("Orange\nBanana\nApple");
+    public static void main(String[] args) {
+        Task1 task1 = new Task1();
+        System.out.println(task1.printThreeWords());
     }
 
     // Задача 2

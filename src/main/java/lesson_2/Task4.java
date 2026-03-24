@@ -1,8 +1,12 @@
-public class Task6 {
+package lesson2;
+
+public class Task4 {
     public static void main(String[] args) {
         Methods method = new Methods();
-        int number = -100;
-        String result = method.positiveOrNegative(number);
+        int a = 2;
+        int b = 6;
+
+        String result = method.numberGreat(a, b);
         System.out.println(result);
     }
 }

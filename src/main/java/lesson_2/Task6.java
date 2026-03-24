@@ -1,10 +1,10 @@
-public class Task2 {
+package lesson2;
+
+public class Task6 {
     public static void main(String[] args) {
         Methods method = new Methods();
-        int a = 10;
-        int b = 0;
-
-        String result = method.checkSumSign(a, b);
+        int number = -100;
+        String result = method.positiveOrNegative(number);
         System.out.println(result);
     }
 }
