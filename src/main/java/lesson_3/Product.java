@@ -30,8 +30,3 @@ public class Product {
         System.out.println("Забронировано: " + (isReserved ? "Да" : "Нет"));
     }
 }
-
-
-
-
-
