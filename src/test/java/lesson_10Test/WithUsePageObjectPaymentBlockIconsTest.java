@@ -1,45 +1,21 @@
-package lesson_9Test;
+package lesson_10Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import lesson_10.PaymentBlockPageObject;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+public class WithUsePageObjectPaymentBlockIconsTest {
+    private WebDriver driver;
 
-public class PaymentBlockIconsTest {
-    public static WebDriver driver;
-
-    public static void closeBannerCookie() {
-        try {
-            WebElement cookieBanner = driver.findElement(By.xpath("//div[@class = 'cookie__wrapper']"));
-            if (cookieBanner.isDisplayed()) {
-                WebElement acceptButton = driver.findElement(By.xpath("//button[@id = 'cookie-agree']"));
-                acceptButton.click();
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-                wait.until(ExpectedConditions.invisibilityOf(cookieBanner));
-                System.out.println("Баннер cookies закрыт");
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println("Баннер cookies не найден — продолжаем");
-        }
-    }
-
-    @BeforeAll
-    public static void setUpClass() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+    @BeforeEach
+    public void setUp() {
+        this.driver = new ChromeDriver();
         driver.get("https://www.mts.by/");
-        closeBannerCookie();
-    }
-
-    @AfterAll
-    public static void closeBrowser() {
-        if (driver != null) {
-            driver.quit();
-        }
+        PaymentBlockPageObject method = new PaymentBlockPageObject();
+        method.closeBannerCookie(driver);
     }
 
     @Test
@@ -55,6 +31,7 @@ public class PaymentBlockIconsTest {
             actual = "Иконка 'Visa' не отображается!";
         }
         Assertions.assertEquals(expected, actual);
+        driver.quit();
     }
 
     @Test
@@ -62,7 +39,6 @@ public class PaymentBlockIconsTest {
         boolean isVisible = false;
         String actual = "Иконка не найдена";
         String expected = "Иконка 'Verified By Visa' видима!";
-
         WebElement visaIcon = driver.findElement(By.xpath("//img[@alt = 'Verified By Visa']"));
         isVisible = visaIcon.isDisplayed();
         if (isVisible) {
@@ -71,6 +47,7 @@ public class PaymentBlockIconsTest {
             actual = "Иконка 'Verified By Visa' не отображается!";
         }
         Assertions.assertEquals(expected, actual);
+        driver.quit();
     }
 
     @Test
@@ -86,6 +63,7 @@ public class PaymentBlockIconsTest {
             actual = "Иконка 'MasterCard' не отображается!";
         }
         Assertions.assertEquals(expected, actual);
+        driver.quit();
     }
 
     @Test
@@ -101,5 +79,6 @@ public class PaymentBlockIconsTest {
             actual = "Иконка 'Белкарт' не отображается!";
         }
         Assertions.assertEquals(expected, actual);
+        driver.quit();
     }
 }
